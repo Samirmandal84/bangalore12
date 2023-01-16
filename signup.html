@@ -87,11 +87,14 @@
     // validation
 
     function validation() {
-      let nameregex ;
+      let nameregex = /^[a-zA-Z]+$/;
       let emailregex = /^[a-zA-Z0-9]+@(gmail|yahoo|outlook)\.com$/;
       let userregex = /^[a-zA-Z0-9]{5,}$/;
 
-     //
+      if (!nameregex.test(name.value)) {
+        alert('name should only contain alphabets!!');
+        return false;
+      }
       if (!emailregex.test(email.value)) {
         alert('enter a valid email');
         return false;
@@ -121,7 +124,6 @@
           })
             .then(() => {
               alert('Successfully Registered🙂');
-              //<!-- <a href="index.html"></a> -->
             })
             .catch((error) => {
               alert('error' + error);
